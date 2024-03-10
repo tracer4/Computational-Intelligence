@@ -104,7 +104,7 @@ class OneMaxGA(GeneticAlgorithm):
         
 
         if random.uniform(0, 1) < self.crossover_prob:
-            #TODO 
+            print("")
         else:
             return parent1, parent2
     
@@ -122,7 +122,7 @@ class OneMaxGA(GeneticAlgorithm):
         mutated_chromosome = chromosome.copy()
         for i in range(self.chromosome_length):
             if random.uniform(0, 1) < self.mutation_rate:
-            #TODO  # Bit flip
+                print("")
         return mutated_chromosome
 
     def elitism(self) -> List[List[int]]:
@@ -143,7 +143,7 @@ class OneMaxGA(GeneticAlgorithm):
                 parent1, parent2 = self.select_parents()
                 offspring1, offspring2 = self.crossover(parent1, parent2)
                 offspring1 = self.mutate(offspring1)
-                offspring2 = #TODO
+                offspring2 = 0
                 new_population.extend([offspring1, offspring2])
 
             new_population = new_population[0:self.population_size-self.elitism_num] # make sure the new_population is the same size of original population - the best individuals we will append next
