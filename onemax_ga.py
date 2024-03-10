@@ -54,7 +54,13 @@ class OneMaxGA(GeneticAlgorithm):
         Returns:
             int: Fitness value.
         """
-        #TODO 
+        fitness = 0 
+        for e in chromosome :
+            if e == 1:
+                fitness += 1     
+
+        return fitness
+            
     
     def calculate_cumulative_probabilities(self) -> List[float]:
         """
@@ -63,7 +69,14 @@ class OneMaxGA(GeneticAlgorithm):
         Returns:
             List[float]: Cumulative probabilities.
         """
-        #TODO 
+        totalFitness = sum(fitness for _, fitness in self.population)
+        cumulativeProbability = 0
+        self.cumulativeFitness = []
+
+    
+        for _, fitness in self.population:
+            cumulativeProbability += fitness / totalFitness
+            self.cumulativeFitness.append(cumulativeProbability)
 
 
     def select_parents(self) -> List[List[int]]:
